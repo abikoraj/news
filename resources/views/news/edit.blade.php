@@ -43,7 +43,7 @@
                     <div class="form-group col-md-6">
                         <label>Featured Youtube Link</label>
                         <input type="url" class="form-control" name="link" placeholder="Featured Youtube Link"
-                            value="{{ $news->link }}" required>
+                            value="{{ $news->link }}">
                     </div>
                 </div>
                 <div class="form-group">

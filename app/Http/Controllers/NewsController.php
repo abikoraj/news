@@ -57,4 +57,9 @@ class NewsController extends Controller
             return view('news.edit', ['news' => $news]);
         }
     }
+
+    public function view(News $news)
+    {
+        return view('single', ['news' => $news]);
+    }
 }

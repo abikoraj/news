@@ -16,20 +16,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('catecory.index');
-});
+    return view('index');
+})->name('home');
 
-Route::prefix('category')->name('catecory.')->group(function () {
-    Route::get('/', [CategoryController::class, 'index'])->name('index');
-    Route::post('/submit', [CategoryController::class, 'submit'])->name('submit');
-    Route::post('/update/{category}', [CategoryController::class, 'update'])->name('update');
-    Route::get('/delete/{category}', [CategoryController::class, 'delete'])->name('delete');
-});
+Route::view('/contact-us', 'contactUs')->name('contact.us');
+Route::get('/news/{news}', [NewsController::class, 'view'])->name('news.view');
 
-Route::prefix('news')->name('news.')->group(function () {
-    Route::get('/add', [NewsController::class, 'add'])->name('add');
-    Route::get('/list', [NewsController::class, 'list'])->name('list');
-    Route::post('/submit', [NewsController::class, 'submit'])->name('submit');
-    Route::get('/delete/{news}', [NewsController::class, 'delete'])->name('delete');
-    Route::match(['get', 'post'], '/update/{news}', [NewsController::class, 'update'])->name('update');
+Route::prefix('admin')->group(function () {
+    Route::prefix('category')->name('catecory.')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('index');
+        Route::post('/submit', [CategoryController::class, 'submit'])->name('submit');
+        Route::post('/update/{category}', [CategoryController::class, 'update'])->name('update');
+        Route::get('/delete/{category}', [CategoryController::class, 'delete'])->name('delete');
+    });
+
+    Route::prefix('news')->name('news.')->group(function () {
+        Route::get('/add', [NewsController::class, 'add'])->name('add');
+        Route::get('/list', [NewsController::class, 'list'])->name('list');
+        Route::post('/submit', [NewsController::class, 'submit'])->name('submit');
+        Route::get('/delete/{news}', [NewsController::class, 'delete'])->name('delete');
+        Route::match(['get', 'post'], '/update/{news}', [NewsController::class, 'update'])->name('update');
+    });
 });
