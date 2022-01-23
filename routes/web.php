@@ -28,5 +28,8 @@ Route::prefix('category')->name('catecory.')->group(function () {
 
 Route::prefix('news')->name('news.')->group(function () {
     Route::get('/add', [NewsController::class, 'add'])->name('add');
+    Route::get('/list', [NewsController::class, 'list'])->name('list');
     Route::post('/submit', [NewsController::class, 'submit'])->name('submit');
+    Route::get('/delete/{news}', [NewsController::class, 'delete'])->name('delete');
+    Route::match(['get', 'post'], '/update/{news}', [NewsController::class, 'update'])->name('update');
 });

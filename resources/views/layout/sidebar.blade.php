@@ -14,16 +14,22 @@
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="active">
+            <li class="{{ Route::is('catecory.index') ? 'active' : '' }}">
                 <a href="{{ route('catecory.index') }}">
                     <i class="pe-7s-note2"></i>
                     <p>Category</p>
                 </a>
             </li>
-            <li>
+            <li class="{{ Route::is('news.add') ? 'active' : '' }}">
                 <a href="{{ route('news.add') }}">
+                    <i class="pe-7s-plus"></i>
+                    <p>Add News</p>
+                </a>
+            </li>
+            <li class="{{ Route::is('news.list') ? 'active' : '' }}">
+                <a href="{{ route('news.list') }}">
                     <i class="pe-7s-news-paper"></i>
-                    <p>News</p>
+                    <p>News List</p>
                 </a>
             </li>
         </ul>
