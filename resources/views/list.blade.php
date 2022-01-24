@@ -1,4 +1,8 @@
 @extends('layout.front.app')
+@section('meta')
+    <meta content="What's going on?? Nepal" name="description">
+
+@endsection
 @section('content')
 
     <!-- Main News Start-->

@@ -35,6 +35,7 @@
 
     @include('layout.front.footer')
 
+    <div id="fb-root"></div>
 
     <!-- Back to Top -->
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -45,6 +46,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('assets/front/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('assets/front/lib/slick/slick.min.js') }}"></script>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=2721127184868304&autoLogAppEvents=1"
+        nonce="rKl0XHfT">
+    </script>
 
 
     <!-- Template Javascript -->
