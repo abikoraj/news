@@ -36,4 +36,9 @@ class CategoryController extends Controller
         $category->delete();
         return back()->with('message', 'Category Deleted Successfully!');
     }
+
+    public function view(Category $category)
+    {
+        return view('list', ['category' => $category]);
+    }
 }

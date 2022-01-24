@@ -21,6 +21,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::view('/contact-us', 'contactUs')->name('contact.us');
 Route::get('/news/{news}', [NewsController::class, 'view'])->name('news.view');
+Route::get('/category/{category}', [CategoryController::class, 'view'])->name('category.view');
 Route::match(['get', 'post'], '/admin/login', [AdminController::class, 'login'])->name('admin.login');
 
 Route::middleware('auth')->prefix('admin')->group(function () {

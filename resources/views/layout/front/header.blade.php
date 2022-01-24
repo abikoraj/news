@@ -41,13 +41,16 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav m-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="{{ route('home') }}"
+                        class="nav-item nav-link {{ Route::is('home') ? 'active' : '' }}">Home</a>
                     @foreach (App\Models\Category::select('id', 'name')->get() as $item)
 
-                        <a href="#" class="nav-item nav-link">{{ $item->name }}</a>
+                        <a href="{{ route('category.view', ['category' => $item->id]) }}"
+                            class="nav-item nav-link">{{ $item->name }}</a>
                     @endforeach
 
-                    <a href="{{ route('contact.us') }}" class="nav-item nav-link">Contact Us</a>
+                    <a href="{{ route('contact.us') }}"
+                        class="nav-item nav-link {{ Route::is('contact.us') ? 'active' : '' }}">Contact Us</a>
                 </div>
             </div>
         </nav>

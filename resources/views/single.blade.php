@@ -9,8 +9,9 @@
                         <img src="{{ asset('storage/' . $news->image) }}" />
                     </div>
                     <div class="sn-content">
-                        <a class="sn-title" href="">Lorem ipsum dolor sit amet</a>
-                        <a class="sn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
+                        <a class="sn-title" href="">{{ $news->title }}</a>
+                        <a class="sn-date" href=""><i
+                                class="far fa-clock"></i>{{ $news->updated_at->diffForHumans() }}</a>
                         {!! $news->content !!}
                     </div>
                 </div>
