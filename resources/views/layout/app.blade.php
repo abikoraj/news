@@ -28,7 +28,15 @@
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     @yield('css')
 
+    <style>
+        @media(max-width:426px) {
+            .main-panel>.content {
+                padding: 15px 0px;
+                min-height: calc(100% - 123px);
+            }
+        }
 
+    </style>
 </head>
 
 <body>

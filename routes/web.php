@@ -25,6 +25,7 @@ Route::get('/category/{category}', [CategoryController::class, 'view'])->name('c
 Route::match(['get', 'post'], '/admin/login', [AdminController::class, 'login'])->name('admin.login');
 
 Route::middleware('auth')->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::prefix('category')->name('catecory.')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');
         Route::post('/submit', [CategoryController::class, 'submit'])->name('submit');

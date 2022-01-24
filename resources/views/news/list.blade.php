@@ -2,11 +2,14 @@
 @section('title')
     News List
 @endsection
+@section('css')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+@endsection
 @section('content')
 
     <div class="card">
         <div class="content table-responsive table-full-width">
-            <table class="table table-hover table-striped">
+            <table class="table table-hover table-striped" id="myTable">
                 <thead>
                     <th>ID</th>
                     <th>Image</th>
@@ -31,7 +34,7 @@
                                 {{ $item->type }}
                             </td>
                             <td>
-                                {{ $item->category_id }}
+                                {{ $item->category->name }}
                             </td>
                             <td>
                                 <a href="{{ route('news.update', ['news' => $item->id]) }}"
@@ -46,4 +49,12 @@
 
         </div>
     </div>
+@endsection
+@section('js')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
 @endsection

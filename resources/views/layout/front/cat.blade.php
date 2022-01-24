@@ -7,7 +7,8 @@
                     @foreach (App\Models\Category::take(7)->get() as $category)
 
                         <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a
-                                href="">{{ $category->name }}</a></li>
+                                href="{{ route('category.view', ['category' => $category->id]) }}">{{ $category->name }}</a>
+                        </li>
                     @endforeach
 
                 </ul>

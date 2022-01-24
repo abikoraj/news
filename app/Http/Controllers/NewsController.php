@@ -51,7 +51,7 @@ class NewsController extends Controller
 
     public function list()
     {
-        $news = DB::table('news')->paginate(6);
+        $news = News::all();
         return view('news.list', ['news' => $news]);
     }
 

@@ -8,8 +8,8 @@
         </div>
 
         <ul class="nav">
-            <li>
-                <a href="#">
+            <li class="{{ Route::is('admin.dashboard') ? 'active' : '' }}">
+                <a href="{{ route('admin.dashboard') }}">
                     <i class="pe-7s-graph"></i>
                     <p>Dashboard</p>
                 </a>

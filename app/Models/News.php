@@ -13,4 +13,9 @@ class News extends Model
     {
         return env('chat_id', '');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
