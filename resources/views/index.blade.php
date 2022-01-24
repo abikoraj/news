@@ -5,28 +5,30 @@
         <div class="container-fluid">
             <div class="row">
                 @php
-                    $first = App\Models\News::take(1)->first();
+                    $first = $news[0];
                 @endphp
-                <div class="col-md-6 tn-left">
-                    <div class="tn-img">
-                        <img src="{{ asset('storage/' . $first->image) }}" />
-                        <div class="tn-content">
-                            <div class="tn-content-inner">
-                                <a class="tn-date" href="{{ route('news.view', ['news' => $first->id]) }}"><i
-                                        class="far fa-clock"></i>{{ $first->updated_at->diffForHumans() }}</a>
-                                <a class="tn-title"
-                                    href="{{ route('news.view', ['news' => $first->id]) }}">{{ $first->title }}</a>
+                @if ($first != null)
+
+                    <div class="col-md-6 tn-left">
+                        <div class="tn-img">
+                            <img src="{{ $first->type == 1 ? asset($first->image) : $first->image }}" />
+                            <div class="tn-content">
+                                <div class="tn-content-inner">
+                                    <a class="tn-date" href="{{ route('news.view', ['news' => $first->id]) }}"><i
+                                            class="far fa-clock"></i>{{ $first->updated_at->diffForHumans() }}</a>
+                                    <a class="tn-title"
+                                        href="{{ route('news.view', ['news' => $first->id]) }}">{{ $first->title }}</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
                 <div class="col-md-6 tn-right">
                     <div class="row">
-                        @foreach (App\Models\News::take(4)->latest()->get()
-        as $top)
+                        @foreach ($news->skip(1)->take(4) as $top)
                             <div class="col-md-6">
                                 <div class="tn-img">
-                                    <img src="{{ asset('storage/' . $top->image) }}" />
+                                    <img src="{{ $first->type == 1 ? asset($first->image) : $first->image }}" />
                                     <div class="tn-content">
                                         <div class="tn-content-inner">
                                             <a class="tn-date"
@@ -48,10 +50,7 @@
     <!-- Top News End-->
     <!-- Main News Start-->
     @php
-    $lat_first = App\Models\News::take(1)
-        ->latest()
-        ->first();
-    $temp = $lat_first->id;
+    $popu = $popular[0];
     @endphp
 
     <div class="main-news">
@@ -61,18 +60,13 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            @php
-                                $popu = App\Models\News::take(1)
-                                    ->inRandomOrder()
-                                    ->first();
-                                $popu_id = $popu->id;
-                            @endphp
+
                             <h2><i class="fas fa-align-justify"></i>Popular News</h2>
                             <div class="row">
 
                                 <div class="col-lg-6">
                                     <div class="mn-img">
-                                        <img src="{{ asset('storage/' . $popu->image) }}" />
+                                        <img src="{{ $popu->type == 1 ? asset($popu->image) : $popu->image }}" />
                                     </div>
                                     <div class="mn-content">
                                         <a class="mn-title"
@@ -88,11 +82,10 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    @foreach (App\Models\News::take(5)->inRandomOrder()->where('id', '!=', $popu_id)->get()
-        as $item)
+                                    @foreach ($popular->skip(1)->take(4) as $item)
                                         <div class="mn-list">
                                             <div class="mn-img">
-                                                <img src="{{ asset('storage/' . $item->image) }}" />
+                                                <img src="{{ $item->type == 1 ? asset($item->image) : $item->image }}" />
                                             </div>
                                             <div class="mn-content">
                                                 <a class="mn-title"

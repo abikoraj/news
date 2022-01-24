@@ -33,10 +33,15 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     });
 
     Route::prefix('news')->name('news.')->group(function () {
-        Route::get('/add', [NewsController::class, 'add'])->name('add');
+        Route::get('/add/{type}', [NewsController::class, 'add'])->name('add');
         Route::get('/list', [NewsController::class, 'list'])->name('list');
-        Route::post('/submit', [NewsController::class, 'submit'])->name('submit');
+        Route::post('/submit/{type}', [NewsController::class, 'submit'])->name('submit');
         Route::get('/delete/{news}', [NewsController::class, 'delete'])->name('delete');
         Route::match(['get', 'post'], '/update/{news}', [NewsController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('user')->name('user.')->group(function () {
+        Route::match(['get', 'post'], '/add', [AdminController::class, 'add'])->name('add');
+        Route::get('/delete/{user}', [AdminController::class, 'delete'])->name('delete');
     });
 });

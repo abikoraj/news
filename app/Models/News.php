@@ -4,8 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class News extends Model
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
+    public function routeNotificationForTelegram()
+    {
+        return env('chat_id', '');
+    }
 }

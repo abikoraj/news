@@ -11,6 +11,8 @@
                     <th>ID</th>
                     <th>Image</th>
                     <th>Title</th>
+                    <th>Type</th>
+                    <th>Category</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
@@ -20,10 +22,16 @@
                                 {{ $item->id }}
                             </td>
                             <td>
-                                <img src="{{ asset('storage/' . $item->image) }}" alt="" width="100px">
+                                <img src="{{ $item->type == 1 ? asset($item->image) : $item->image }}" width="100px" />
                             </td>
                             <td>
                                 {{ $item->title }}
+                            </td>
+                            <td>
+                                {{ $item->type }}
+                            </td>
+                            <td>
+                                {{ $item->category_id }}
                             </td>
                             <td>
                                 <a href="{{ route('news.update', ['news' => $item->id]) }}"

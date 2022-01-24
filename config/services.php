@@ -29,5 +29,12 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'facebook_poster' => [
+        'page_id' => env('page_id'),
+        'access_token' => env('page_token'),
+    ],
+    'telegram-bot-api' => [
+        'token' => env('bot_id')
+    ],
 
 ];

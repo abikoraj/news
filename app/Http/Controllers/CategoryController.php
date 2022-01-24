@@ -41,4 +41,10 @@ class CategoryController extends Controller
     {
         return view('list', ['category' => $category]);
     }
+
+    public function apiList()
+    {
+        $category = DB::table('categories')->select('id', 'name')->get();
+        return response()->json([$category]);
+    }
 }

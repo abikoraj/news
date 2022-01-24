@@ -16,21 +16,18 @@
                                         <div class="col-md-4">
 
                                             <div class="mn-img">
-                                                <img src="{{ asset('storage/' . $item->image) }}" />
+                                                <img src="{{ $item->type == 1 ? asset($item->image) : $item->image }}" />
                                             </div>
                                         </div>
                                         <div class="col-md-8">
-
                                             <div class="mn-content">
                                                 <a class="mn-title" href="">{{ $item->title }}</a>
                                                 <a class="mn-date" href=""><i
                                                         class="far fa-clock"></i>{{ $item->updated_at->diffForHumans() }}</a>
-                                                <p>
-                                                    @php
-                                                        $pn = Str::limit($item->content, 150, '...');
-                                                    @endphp
-                                                    {!! $pn !!}
-                                                </p>
+                                                <div
+                                                    style="display:-webkit-box;-webkit-line-clamp: 3;-webkit-box-orient:vertical; overflow:hidden;">
+                                                    {!! $item->content !!}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

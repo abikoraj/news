@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>News Portal</title>
+    <title>{{ env('APP_NAME' . '') }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="News Portal" name="keywords">
-    <meta content="News Portal Latest News" name="description">
+    @yield('meta')
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -22,6 +22,8 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/front/css/style.css') }}" rel="stylesheet">
+    @yield('css')
+
 </head>
 
 <body>
@@ -47,6 +49,7 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('assets/front/js/main.js') }}"></script>
+    @yield('js')
 </body>
 
 </html>

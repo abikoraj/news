@@ -4,12 +4,12 @@
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-4">
                 <div class="logo">
-                    <a href="">
+                    <a href="{{ route('home') }}">
                         <img src="{{ asset('assets/front/img/logo.png') }}" alt="Logo">
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-4">
+            <div class="col-lg-6 col-md-4 d-none d-md-block">
                 <div class="search">
                     <input type="text" placeholder="Search">
                     <button><i class="fa fa-search"></i></button>
@@ -17,11 +17,11 @@
             </div>
             <div class="col-lg-3 col-md-4">
                 <div class="social">
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-facebook"></i></a>
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                    <a href=""><i class="fab fa-youtube"></i></a>
-                    <a href=""><i class="fab fa-telegram"></i></a>
+                    @foreach (getSocial() as $item)
+                        <a href="{{ $item['link'] }}" target="_blank"><i class="fab fa-{{ $item['icon'] }}"></i></a>
+
+                    @endforeach
+
                 </div>
             </div>
         </div>
