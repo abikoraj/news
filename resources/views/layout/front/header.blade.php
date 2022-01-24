@@ -19,9 +19,9 @@
                 <div class="social">
                     <a href=""><i class="fab fa-twitter"></i></a>
                     <a href=""><i class="fab fa-facebook"></i></a>
-                    <a href=""><i class="fab fa-linkedin"></i></a>
                     <a href=""><i class="fab fa-instagram"></i></a>
                     <a href=""><i class="fab fa-youtube"></i></a>
+                    <a href=""><i class="fab fa-telegram"></i></a>
                 </div>
             </div>
         </div>
@@ -42,17 +42,11 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav m-auto">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="#" class="nav-item nav-link">Sports</a>
-                    <a href="#" class="nav-item nav-link">Tech</a>
-                    <a href="#" class="nav-item nav-link">Fashion</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                        <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item">Sub Item 1</a>
-                            <a href="#" class="dropdown-item">Sub Item 2</a>
-                        </div>
-                    </div>
-                    <a href="single-page.html" class="nav-item nav-link">Single Page</a>
+                    @foreach (App\Models\Category::select('id', 'name')->get() as $item)
+
+                        <a href="#" class="nav-item nav-link">{{ $item->name }}</a>
+                    @endforeach
+
                     <a href="{{ route('contact.us') }}" class="nav-item nav-link">Contact Us</a>
                 </div>
             </div>

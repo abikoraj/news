@@ -60,6 +60,8 @@ class NewsController extends Controller
 
     public function view(News $news)
     {
+        $news->count += 1;
+        $news->save();
         return view('single', ['news' => $news]);
     }
 }

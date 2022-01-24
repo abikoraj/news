@@ -53,52 +53,13 @@
         ->first();
     $temp = $lat_first->id;
     @endphp
+
     <div class="main-news">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h2><i class="fas fa-align-justify"></i>Latest News</h2>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mn-img">
-                                        <img src="{{ asset('storage/' . $lat_first->image) }}" />
-                                    </div>
-                                    <div class="mn-content">
-                                        <a class="mn-title"
-                                            href="{{ route('news.view', ['news' => $lat_first->id]) }}">{{ $lat_first->title }}</a>
-                                        <a class="mn-date"
-                                            href="{{ route('news.view', ['news' => $lat_first->id]) }}"><i
-                                                class="far fa-clock"></i>{{ $lat_first->updated_at->diffForHumans() }}</a>
-                                        <p>
-                                            @php
-                                                $ct = Str::limit($lat_first->content, 200, '...');
-                                            @endphp
-                                            {!! $ct !!}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    @foreach (App\Models\News::take(5)->latest()->where('id', '!=', $temp)->get()
-        as $item)
-                                        <div class="mn-list">
-                                            <div class="mn-img">
-                                                <img src="{{ asset('storage/' . $item->image) }}" />
-                                            </div>
-                                            <div class="mn-content">
-                                                <a class="mn-title"
-                                                    href="{{ route('news.view', ['news' => $item->id]) }}">{{ $item->title }}</a>
-                                                <a class="mn-date" href=""><i
-                                                        class="far fa-clock"></i>{{ $item->updated_at->diffForHumans() }}</a>
-                                            </div>
-                                        </div>
 
-                                    @endforeach
-
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-md-12">
                             @php
                                 $popu = App\Models\News::take(1)
@@ -144,6 +105,14 @@
 
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <hr>
+                            {{-- <h2><i class="fas fa-align-justify"></i>Latest News</h2> --}}
+                            <iframe src="https://www.hamropatro.com/widgets/calender-medium.php" frameborder="0"
+                                scrolling="no" marginwidth="0" marginheight="0"
+                                style="border:none; overflow:hidden; width:295px; height:385px;" allowtransparency="true">
+                            </iframe>
                         </div>
                     </div>
                 </div>
