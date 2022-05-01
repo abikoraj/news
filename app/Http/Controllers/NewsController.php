@@ -38,14 +38,14 @@ class NewsController extends Controller
         // dd($news);
         $news->save();
 
-        try {
-            // $chat = env('chat_id ');
-            // $news->notify((new facebookpost($news))->delay(now()->addMinute()));
-            $news->notify(new facebookpost($news));
-        } catch (\Throwable $th) {
-            dd($th);
-            //throw $th;
-        }
+        // try {
+        //     $chat = env('chat_id ');
+        //     $news->notify((new facebookpost($news))->delay(now()->addMinute()));
+        //     $news->notify(new facebookpost($news));
+        // } catch (\Throwable $th) {
+        //     dd($th);
+        //     throw $th;
+        // }
         return back()->with('message', 'News Published Successfully!');
     }
 
@@ -111,6 +111,18 @@ class NewsController extends Controller
         }
         return response()->json($query->paginate(6));
     }
+
+    public function apiListLatest(Request $request)
+    {
+        $query = DB::table('news');
+
+        if ($request->filled('category_id')) {
+            $query = $query->where('category_id', $request->category_id);
+        }
+        return response()->json($query->orderBy('id', 'desc')->take(10)->get());
+    }
+
+
 
     public function apiViewNews($id)
     {

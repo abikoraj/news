@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\RashifalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,12 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::post('/submit/{type}', [NewsController::class, 'submit'])->name('submit');
         Route::get('/delete/{news}', [NewsController::class, 'delete'])->name('delete');
         Route::match(['get', 'post'], '/update/{news}', [NewsController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('rasifal')->name('rasifal.')->group(function () {
+        Route::match(['get', 'post'], '/add', [RashifalController::class, 'add'])->name('add');
+        Route::get('/list', [RashifalController::class, 'list'])->name('list');
+        Route::match(['get', 'post'], '/update/{rashifal}', [RashifalController::class, 'update'])->name('update');
     });
 
     Route::prefix('user')->name('user.')->group(function () {

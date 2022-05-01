@@ -38,6 +38,12 @@
                     <p>News List</p>
                 </a>
             </li>
+            <li class="{{ Route::is('rasifal.list') ? 'active' : '' }}">
+                <a href="{{ route('rasifal.list') }}">
+                    <i class="pe-7s-news-paper"></i>
+                    <p>Rashifal</p>
+                </a>
+            </li>
             <li class="{{ Route::is('user.add') ? 'active' : '' }}">
                 <a href="{{ route('user.add') }}">
                     <i class="pe-7s-users"></i>
