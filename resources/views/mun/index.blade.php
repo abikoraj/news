@@ -55,7 +55,9 @@
                             <div style="display: flex;justify-content: space-between;">
                                 <button class="btn btn-primary">update</button>
                                 <a  href="{{route('mun.del',['id'=>$mun->id])}}" class="btn btn-danger">Delete</a>
-                                <button class="btn btn-success">manage</button>
+                                <button class="btn btn-success">Wards</button>
+                                <button class="btn btn-success">Mayor</button>
+                                <button class="btn btn-success">Vice Mayor</button>
                             </div>
 
                         </form>
