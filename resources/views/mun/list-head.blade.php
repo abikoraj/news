@@ -39,8 +39,8 @@
                                 {{ $item->votes }}
                             </td>
                             <td>
-                                {{-- <a href="{{ route('news.update', ['news' => $item->id]) }}"
-                                    class="btn btn-success btn-fill"> Edit </a> --}}
+                                <a href="{{ route('mun.candi.update', ['position' => $item->id]) }}"
+                                    class="btn btn-primary btn-fill" target="_blank"> Update </a>
                                 <a href="{{ route('mun.candi.delete', ['position' => $item->id]) }}"
                                     class="btn btn-danger btn-fill"> Delete </a>
                             </td>

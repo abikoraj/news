@@ -45,9 +45,9 @@ class MunController extends Controller
     }
     public function candi_add($mun, $ward, $position)
     {
-        $files=DB::table('positions')->distinct('image')->select('image')->get();
+        $files = DB::table('positions')->distinct('image')->select('image')->get();
 
-        return view('mun.add_candidate', compact('mun', 'ward', 'position','files'));
+        return view('mun.add_candidate', compact('mun', 'ward', 'position', 'files'));
     }
 
     public function candi_submit(Request $request)
@@ -68,6 +68,30 @@ class MunController extends Controller
         $candi->save();
         // return response('ok');
         return redirect()->back();
+    }
+
+    public function candi_update(position $position, Request $request)
+    {
+        if ($request->getMethod() == "POST") {
+
+            if ($request->hasFile('image')) {
+                $position->image = $request->image->store('data/candi-img');
+            } else {
+                $position->image = $request->image1;
+            }
+            $position->min_id = $request->min_id;
+            $position->ward_id = $request->ward_id;
+            $position->name = $request->name;
+            $position->identity = $request->identity;
+            $position->party = $request->party;
+            $position->votes = $request->votes;
+            // dd($position);
+            $position->save();
+            return redirect()->back();
+        } else {
+            $files = DB::table('positions')->distinct('image')->select('image')->get();
+            return view('mun.edit_canidate', compact('position', 'files'));
+        }
     }
 
     public function apiCandiList()
@@ -100,5 +124,20 @@ class MunController extends Controller
     {
         $position->delete();
         return back();
+    }
+
+    public function apiVoteUpdate($id, Request $request)
+    {
+        $candi = position::find($id);
+        $candi->votes = $request->votes;
+        // dd($candi);
+        $candi->save();
+        return ["Result" => "Data Received"];
+    }
+
+    public function apiGetCandi($id)
+    {
+        $candi = DB::table('positions')->where('min_id', $id)->get();
+        return response()->json($candi);
     }
 }

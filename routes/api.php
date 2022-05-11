@@ -32,3 +32,5 @@ Route::get('news-latest', [NewsController::class, 'apiListLatest']);
 Route::get('rashifal-list', [RashifalController::class, 'apiListRashifal']);
 Route::get('mun-list', [MunController::class, 'apiMunList']);
 Route::get('candi-list', [MunController::class, 'apiCandiList']);
+Route::post('vote-update/{id}', [MunController::class, 'apiVoteUpdate']);
+Route::get('get-candi/{id}', [MunController::class, 'apiGetCandi']);

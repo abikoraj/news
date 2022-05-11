@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('','app.index')->name('home');
+
+Route::view('', 'app.index')->name('home');
 
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -59,6 +60,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::prefix('candi')->name('candi.')->group(function () {
             Route::get('/add/{mun}/{ward}/{position}', [MunController::class, 'candi_add'])->name('add');
             Route::post('/sumbit', [MunController::class, 'candi_submit'])->name('submit');
+            Route::match(['get', 'post'], '/update/{position}', [MunController::class, 'candi_update'])->name('update');
             Route::get('/list-mayor/{mun}', [MunController::class, 'mayor_list'])->name('mayor.list');
             Route::get('/list-vice-mayor/{mun}', [MunController::class, 'viceMayor_list'])->name('vice-mayor.list');
             Route::get('/list-head/{mun}/{ward}', [MunController::class, 'head_list'])->name('head.list');
@@ -74,6 +76,10 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 });
 
 
-Route::any('{query}',
-  function() { return redirect('/'); })
-  ->where('query', '.*');
+Route::any(
+    '{query}',
+    function () {
+        return redirect('/');
+    }
+)
+    ->where('query', '.*');
