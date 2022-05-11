@@ -44,9 +44,9 @@
                                 {{-- <a href="{{ route('mun.del', ['id' => $mun->id]) }}" class="btn btn-danger">Delete</a> --}}
                                 {{-- <button class="btn btn-success">Wards</button> <br> --}}
 
-                                <a href="{{ route('mun.candi.head.list', ['mun' => $mun->id, 'ward' => $i]) }}"
+                                <a target="_blank" href="{{ route('mun.candi.head.list', ['mun' => $mun->id, 'ward' => $i]) }}"
                                     class="btn btn-success">List</a>
-                                <a href="{{ route('mun.candi.add', ['mun' => $mun->id, 'ward' => $i, 'position' => 3]) }}"
+                                <a target="_blanl" href="{{ route('mun.candi.add', ['mun' => $mun->id, 'ward' => $i, 'position' => 3]) }}"
                                     class="btn btn-success">Add New</a>
                             </div>
 

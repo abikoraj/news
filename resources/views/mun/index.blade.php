@@ -67,11 +67,11 @@
                                     <button class="btn btn-primary">update</button>
                                     <a href="{{ route('mun.del', ['id' => $mun->id]) }}" class="btn btn-danger">Delete</a>
 
-                                    <a href="{{ route('mun.candi.ward.list', ['mun' => $mun->id]) }}"
+                                    <a target="_blank" href="{{ route('mun.candi.ward.list', ['mun' => $mun->id]) }}"
                                         class="btn btn-success">Ward</a>
-                                    <a href="{{ route('mun.candi.mayor.list', ['mun' => $mun->id]) }}"
+                                    <a target="_blank" href="{{ route('mun.candi.mayor.list', ['mun' => $mun->id]) }}"
                                         class="btn btn-success">Mayor</a>
-                                    <a href="{{ route('mun.candi.vice-mayor.list', ['mun' => $mun->id]) }}"
+                                    <a target="_blank" href="{{ route('mun.candi.vice-mayor.list', ['mun' => $mun->id]) }}"
                                         class="btn btn-success">Vice Mayor</a>
                                     {{-- <a href="{{ route('mun.candi.add', ['mun' => $mun->id, 'ward' => 0, 'position' => 2]) }}"
                                         class="btn btn-success">Vice Mayor</a> --}}
