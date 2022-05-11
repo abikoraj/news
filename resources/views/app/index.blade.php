@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Ionic App</title>
+    <title>TrendingNp</title>
+    <meta content="What's going on?? Nepal,Election 2079,Biratnagar,Morang, Nepali Congress" name="description">
 
     <base href="/">
 
