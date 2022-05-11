@@ -12,8 +12,8 @@
     <meta property="og:description"
         content="What's going on?? Nepal!!" />
     <meta property="og:image" content="https://trendingnp.com/trendingnp.jpg" />
-    <meta property="og:image:width" content="600" />
-    <meta property="og:image:height" content="1600" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="600" />
     <base href="/">
 
     <meta name="color-scheme" content="light dark">
