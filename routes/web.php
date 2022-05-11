@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('', 'app.index')->name('home');
+// Route::view('', 'app.index')->name('home');
 
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -76,10 +76,10 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 });
 
 
-Route::any(
-    '{query}',
-    function () {
-        return redirect('/');
-    }
-)
-    ->where('query', '.*');
+// Route::any(
+//     '{query}',
+//     function () {
+//         return redirect('/');
+//     }
+// )
+//     ->where('query', '.*');
