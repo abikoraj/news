@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-md-4">
                         <label>Votes</label>
-                        <input type="number" class="form-control" name="votes" required>
+                        <input type="number" class="form-control" name="votes" required value="0">
                     </div>
                 </div>
                 <div class="footer text-right">

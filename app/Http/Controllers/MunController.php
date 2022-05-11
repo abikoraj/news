@@ -66,7 +66,8 @@ class MunController extends Controller
         $candi->votes = $request->votes;
         // dd($candi);
         $candi->save();
-        return response('ok');
+        // return response('ok');
+        return redirect()->back();
     }
 
     public function apiCandiList()
