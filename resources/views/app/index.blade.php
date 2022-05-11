@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <title>TrendingNp</title>
-    <meta content="What's going on?? Nepal,Election 2079,Biratnagar,Morang, Nepali Congress (NC),[1] CPN (UML), CPN(Maoist-centre), CPN(Unified Socialist), PSP-N, Loktantrik Samajwadi Party, Nepal and People's Progressive Party" name="description">
+    <meta content="What's going on?? Nepal!!" name="description">
     <meta property="og:url" content="https://trendingnp.com" />
     <meta property="og:type" content="website" />
     <meta property="og:title"
         content="Trendingnp - What's going on??" />
     <meta property="og:description"
-        content="What's going on?? Nepal,Election 2079,Biratnagar,Morang, Nepali Congress (NC),[1] CPN (UML), CPN(Maoist-centre), CPN(Unified Socialist), PSP-N, Loktantrik Samajwadi Party, Nepal and People's Progressive Party" />
+        content="What's going on?? Nepal!!" />
     <meta property="og:image" content="https://trendingnp.com/trendingnp.jpg" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="1600" />
