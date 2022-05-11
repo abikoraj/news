@@ -49,11 +49,21 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::match(['get', 'post'], '/update/{rashifal}', [RashifalController::class, 'update'])->name('update');
     });
 
-    Route::prefix('mun')->name('mun.')->group(function(){
-        route::get('',[MunController::class,'index'])->name('index');
-        route::post('add',[MunController::class,'add'])->name('add');
-        route::post('update',[MunController::class,'update'])->name('update');
-        route::get('del',[MunController::class,'del'])->name('del');
+    Route::prefix('mun')->name('mun.')->group(function () {
+        route::get('', [MunController::class, 'index'])->name('index');
+        route::post('add', [MunController::class, 'add'])->name('add');
+        route::post('update', [MunController::class, 'update'])->name('update');
+        route::get('del', [MunController::class, 'del'])->name('del');
+
+        Route::prefix('candi')->name('candi.')->group(function () {
+            Route::get('/add/{mun}/{ward}/{position}', [MunController::class, 'candi_add'])->name('add');
+            Route::post('/sumbit', [MunController::class, 'candi_submit'])->name('submit');
+            Route::get('/list-mayor/{mun}', [MunController::class, 'mayor_list'])->name('mayor.list');
+            Route::get('/list-vice-mayor/{mun}', [MunController::class, 'viceMayor_list'])->name('vice-mayor.list');
+            Route::get('/list-head/{mun}/{ward}', [MunController::class, 'head_list'])->name('head.list');
+            Route::get('/list-ward/{mun}', [MunController::class, 'ward_list'])->name('ward.list');
+            Route::get('/delete/{position}', [MunController::class, 'del_candi'])->name('delete');
+        });
     });
 
     Route::prefix('user')->name('user.')->group(function () {

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MunController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\RashifalController;
 use Illuminate\Http\Request;
@@ -29,3 +30,5 @@ Route::get('news-list', [NewsController::class, 'apiList']);
 Route::get('news/{id}', [NewsController::class, 'apiViewNews']);
 Route::get('news-latest', [NewsController::class, 'apiListLatest']);
 Route::get('rashifal-list', [RashifalController::class, 'apiListRashifal']);
+Route::get('mun-list', [MunController::class, 'apiMunList']);
+Route::get('candi-list', [MunController::class, 'apiCandiList']);

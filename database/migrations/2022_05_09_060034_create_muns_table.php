@@ -16,6 +16,7 @@ class CreateMunsTable extends Migration
         Schema::create('muns', function (Blueprint $table) {
             $table->id();
             $table->text('name');
+            $table->text('ward_nos');
             $table->timestamps();
         });
     }
