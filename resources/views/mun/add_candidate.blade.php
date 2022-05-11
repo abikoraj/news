@@ -30,8 +30,11 @@
                         <select name="image" id="">
                             <option value="">Select Image</option>
                             @foreach (\App\Models\position::all() as $item)
-                                <option value="{{ $item->image }}"><img src="{{ asset($item->image) }}" width="100"
-                                        alt=""></option>
+                                <option value="{{ $item->image }}"
+                                    style="background-image: url({{ asset($item->image) }})">
+                                    {{-- <img src="{{ asset($item->image) }}" width="100" alt=""> --}}
+                                    {{ $item->image }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
