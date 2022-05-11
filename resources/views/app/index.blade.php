@@ -11,7 +11,7 @@
         content="Trendingnp - What's going on??" />
     <meta property="og:description"
         content="What's going on?? Nepal!!" />
-    <meta property="og:image" content="https://trendingnp.com/trendingnp.jpg" />
+    <meta property="og:image" content="https://trendingnp.com/trendingnp.webp" />
     <meta property="og:image:width" content="1600" />
     <meta property="og:image:height" content="600" />
     <base href="/">
