@@ -21,33 +21,33 @@
 
                 <div class="row">
 
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <label>Image</label>
                         <input type="file" class="dropify" id="dropify-event" name="image">
                     </div>
+                    @php
+                        $i=0;
+                    @endphp
+                    @foreach ($files as $file)
+                    <input type="radio" name="image1" id="image-{{$i}}" value="{{$file->image}}">
+                        <br>
+                        <div class="col-md-2">
+                            <label for="image-{{$i}}" style="width: 100%">
+                                <img  style="width: 100%" src="{{asset($file->image)}}" alt="">
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="row">
                     <div class="col-md-4">
-                        <label>Image</label>
-                        <select name="image" id="">
-                            <option value="">Select Image</option>
-                            @foreach (\App\Models\position::all() as $item)
-                                <option value="{{ $item->image }}"
-                                    style="background-image: url({{ asset($item->image) }})">
-                                    {{-- <img src="{{ asset($item->image) }}" width="100" alt=""> --}}
-                                    {{ $item->image }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="col-md-6">
                         <label>Name</label>
                         <input type="text" class="form-control" name="name" required>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label>Party</label>
                         <input type="text" class="form-control" name="party" required>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label>Votes</label>
                         <input type="number" class="form-control" name="votes" required>
                     </div>

@@ -45,7 +45,9 @@ class MunController extends Controller
     }
     public function candi_add($mun, $ward, $position)
     {
-        return view('mun.add_candidate', compact('mun', 'ward', 'position'));
+        $files=DB::table('positions')->distinct('image')->select('image')->get();
+
+        return view('mun.add_candidate', compact('mun', 'ward', 'position','files'));
     }
 
     public function candi_submit(Request $request)
@@ -54,7 +56,7 @@ class MunController extends Controller
         if ($request->hasFile('image')) {
             $candi->image = $request->image->store('data/candi-img');
         } else {
-            $candi->image = $request->image;
+            $candi->image = $request->image1;
         }
         $candi->min_id = $request->min_id;
         $candi->ward_id = $request->ward_id;
@@ -62,9 +64,9 @@ class MunController extends Controller
         $candi->identity = $request->identity;
         $candi->party = $request->party;
         $candi->votes = $request->votes;
-        dd($candi);
-        // $candi->save();
-        return back();
+        // dd($candi);
+        $candi->save();
+        return response('ok');
     }
 
     public function apiCandiList()
