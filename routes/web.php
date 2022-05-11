@@ -72,3 +72,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/delete/{user}', [AdminController::class, 'delete'])->name('delete');
     });
 });
+
+
+Route::any('{query}',
+  function() { return redirect('/'); })
+  ->where('query', '.*');
