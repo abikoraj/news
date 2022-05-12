@@ -2,9 +2,9 @@
 
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="{{ route('home') }}" class="simple-text">
+            {{-- <a href="{{ route('home') }}" class="simple-text">
                 News Portal
-            </a>
+            </a> --}}
         </div>
 
         <ul class="nav">

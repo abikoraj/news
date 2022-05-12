@@ -126,13 +126,23 @@ class MunController extends Controller
         return back();
     }
 
-    public function apiVoteUpdate($id, Request $request)
+    public function apiVoteUpdate( Request $request)
     {
-        $candi = position::find($id);
-        $candi->votes = $request->votes;
-        // dd($candi);
-        $candi->save();
-        return ["Result" => "Data Received"];
+        $datas=$request->all();
+        foreach ($datas as $key => $data) {
+            $candi = position::find($data['id']);
+            $candi->votes = $data['vote'];
+            $candi->save();
+        }
+        return response($request->all());
+        // foreach ($variable as $key => $value) {
+        //     # code...
+        // }
+        // $candi = position::find($id);
+        // $candi->votes = $request->votes;
+        // // dd($candi);
+        // $candi->save();
+        // return ["Result" => "Data Received"];
     }
 
     public function apiGetCandi($id)
